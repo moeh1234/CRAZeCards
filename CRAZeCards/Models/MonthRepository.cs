@@ -74,6 +74,97 @@ namespace CRAZeCards.Models
 
                 return month5;
             }
+            if (month == "june")
+            {
+                Month month6 = new Month();
+                month6.Name = "june";
+
+                HolidayEntity holidayentity = new HolidayEntity();
+                List<HOLIDAY> holidays = holidayentity.HOLIDAYS.Where(x => x.Holiday_Month == "jun").ToList();
+
+
+                month6.Holidays = holidays;
+
+                return month6;
+            }
+            if (month == "July")
+            {
+                Month month7 = new Month();
+                month7.Name = "July";
+
+                HolidayEntity holidayentity = new HolidayEntity();
+                List<HOLIDAY> holidays = holidayentity.HOLIDAYS.Where(x => x.Holiday_Month == "jul").ToList();
+
+
+                month7.Holidays = holidays;
+
+                return month7;
+            }
+            if (month == "August")
+            {
+                Month month8 = new Month();
+                month8.Name = "August";
+
+                HolidayEntity holidayentity = new HolidayEntity();
+                List<HOLIDAY> holidays = holidayentity.HOLIDAYS.Where(x => x.Holiday_Month == "aug").ToList();
+
+
+                month8.Holidays = holidays;
+
+                return month8;
+            }
+            if (month == "September")
+            {
+                Month month9 = new Month();
+                month9.Name = "September";
+
+                HolidayEntity holidayentity = new HolidayEntity();
+                List<HOLIDAY> holidays = holidayentity.HOLIDAYS.Where(x => x.Holiday_Month == "sep").ToList();
+
+
+                month9.Holidays = holidays;
+
+                return month9;
+            }
+            if (month == "October")
+            {
+                Month month10 = new Month();
+                month10.Name = "October";
+
+                HolidayEntity holidayentity = new HolidayEntity();
+                List<HOLIDAY> holidays = holidayentity.HOLIDAYS.Where(x => x.Holiday_Month == "oct").ToList();
+
+
+                month10.Holidays = holidays;
+
+                return month10;
+            }
+            if (month == "November")
+            {
+                Month month11 = new Month();
+                month11.Name = "November";
+
+                HolidayEntity holidayentity = new HolidayEntity();
+                List<HOLIDAY> holidays = holidayentity.HOLIDAYS.Where(x => x.Holiday_Month == "nov").ToList();
+
+
+                month11.Holidays = holidays;
+
+                return month11;
+            }
+            if (month == "December")
+            {
+                Month month12 = new Month();
+                month12.Name = "December";
+
+                HolidayEntity holidayentity = new HolidayEntity();
+                List<HOLIDAY> holidays = holidayentity.HOLIDAYS.Where(x => x.Holiday_Month == "dec").ToList();
+
+
+                month12.Holidays = holidays;
+
+                return month12;
+            }
             return null;
         }
     }
