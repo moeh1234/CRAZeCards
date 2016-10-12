@@ -1,0 +1,25 @@
+﻿@model CRAZeCards.Month
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SelectCard</title>
+</head>
+<body>
+    <div> 
+        <ul>
+            @foreach (HOLIDAY holiday in Model.Holidays)
+            {
+               <li>@holiday.Holiday_Name</li>
+            }
+
+        </ul>
+    </div>
+</body>
+</html>
