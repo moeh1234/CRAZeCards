@@ -74,7 +74,7 @@ namespace CRAZeCards.Models
 
                 return month5;
             }
-            if (month == "june")
+            if (month == "June")
             {
                 Month month6 = new Month();
                 month6.Name = "june";
