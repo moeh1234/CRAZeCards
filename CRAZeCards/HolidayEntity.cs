@@ -31,6 +31,10 @@ namespace CRAZeCards
             modelBuilder.Entity<HOLIDAY>()
                 .Property(e => e.Holiday_Date)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<HOLIDAY>()
+                .Property(e => e.Holiday_View)
+                .IsUnicode(false);
         }
     }
 }
