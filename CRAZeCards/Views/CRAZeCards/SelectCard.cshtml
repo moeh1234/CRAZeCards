@@ -13,10 +13,11 @@
 </head>
 <body>
     <div> 
-        <ul>
+        <ul style="list-style: none;">
             @foreach (HOLIDAY holiday in Model.Holidays)
             {
-               <li>@holiday.Holiday_Name</li>
+                <li><h1>@Html.ActionLink(@holiday.Holiday_Name,"SendCard",new { holidayId = holiday.Holiday_Id, imgUrl = holiday.Holiday_View})</h1></li>
+               @*<li><h1><a href="@holiday.Holiday_View">@holiday.Holiday_Name</a></h1></li>*@
             }
 
         </ul>

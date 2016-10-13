@@ -23,7 +23,7 @@ namespace CRAZeCards.Controllers
             return View(jan);
         }
         [HttpGet]
-        public ActionResult SendCard(string holidayId)
+        public ActionResult SendCard(string holidayId, string imgUrl)
         {
             HolidayEntity entity = new HolidayEntity();
             HOLIDAY holiday = entity.HOLIDAYS.Single(x => x.Holiday_Id == holidayId);
