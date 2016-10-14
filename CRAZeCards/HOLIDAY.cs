@@ -24,5 +24,9 @@ namespace CRAZeCards
         [Required]
         [StringLength(50)]
         public string Holiday_Date { get; set; }
+
+        [Required]
+        [StringLength(50)]
+        public string Holiday_View { get; set; }
     }
 }

@@ -1,0 +1,24 @@
+﻿@model CRAZeCards.HOLIDAY
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SendCard</title>
+</head>
+<body>
+    <div>
+        @Model.Holiday_Name
+        <img src="@Model.Holiday_View" />
+    </div>
+        @using (Html.BeginForm())
+        {
+            <p>  your email </p><input name="toemail" type="text"/>
+        <input type="submit" value="Send Card" />}
+</body>
+</html>
