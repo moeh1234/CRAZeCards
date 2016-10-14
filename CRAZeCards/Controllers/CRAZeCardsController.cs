@@ -39,13 +39,13 @@ namespace CRAZeCards.Controllers
             string subject = form["subject"];
             string yourName = form["yourname"];
             string message = form["message"];
-            string hiddenId = form["hiddenid"];
-            IRestResponse response = SendSimpleMessage(toEMAIL, subject, yourName, message, hiddenId);
+            string hiddenView = form["hiddenView"];
+            IRestResponse response = SendSimpleMessage(toEMAIL, subject, yourName, message, hiddenView);
 
             return View("MessageSent");
         }
 
-        public static IRestResponse SendSimpleMessage(string email, string subject, string yourname, string message, string hiddenId)
+        public static IRestResponse SendSimpleMessage(string email, string subject, string yourname, string message, string hiddenView)
         {
             RestClient client = new RestClient();
             client.BaseUrl = new Uri("https://api.mailgun.net/v3");
@@ -56,10 +56,10 @@ namespace CRAZeCards.Controllers
             request.AddParameter("domain",
                                  "sandbox72fcdacea882400d8b44f1952838a66e.mailgun.org", ParameterType.UrlSegment);
             request.Resource = "{domain}/messages";
-            request.AddParameter("from", "(test) <excited@sandbox72fcdacea882400d8b44f1952838a66e.mailgun.org>");
+            request.AddParameter("from", "" + yourname + " <excited@sandbox72fcdacea882400d8b44f1952838a66e.mailgun.org>");
             request.AddParameter("to", email);
             request.AddParameter("subject", subject);
-            request.AddParameter("html", "<html><body><div>" + (message) + "<img src="+(hiddenId)+"/></div></body></html>");
+            request.AddParameter("html", "<html><body><div>" + (message) + "<img src="+(hiddenView)+"/></div></body></html>");
             request.Method = Method.POST;
             return client.Execute(request);
         }

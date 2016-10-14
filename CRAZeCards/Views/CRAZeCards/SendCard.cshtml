@@ -20,6 +20,10 @@
             height: 500px;
             overflow: scroll;
         }
+        #hideID
+        {
+            display:none;
+        }
 
     </style>
 </head>
@@ -32,7 +36,7 @@
             <p>Subject:<br><input name="subject" type="text"/></p>
             <p>Receiver's Email:<br><input name="toemail" type="text" /></p>
             <p>Message:<br><input name="message" type="text" class="messagebox"/></p>
-            <p><input name="hiddenid" type="hidden" value="@Model.Holiday_Id" /></p>
+            <input type="url" name="hiddenView" value="@Model.Holiday_View" id="hideID"/>
             <input type="submit" value="Send Card" />
         } 
 </body>
