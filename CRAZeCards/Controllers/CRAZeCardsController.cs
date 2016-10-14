@@ -24,14 +24,18 @@ namespace CRAZeCards.Controllers
 
             return View(jan);
         }
+<<<<<<< HEAD
         public ActionResult ViewGodDay()
         {
             return View();
         }
+=======
+>>>>>>> origin/master
         [HttpGet]
         public ActionResult SendCard(string holidayId, string imgUrl)
         {
             HolidayEntity entity = new HolidayEntity();
+<<<<<<< HEAD
            HOLIDAY holiday = entity.HOLIDAYS.Single(x => x.Holiday_Id == holidayId);
 
             return View(holiday);
@@ -63,5 +67,10 @@ namespace CRAZeCards.Controllers
             request.Method = Method.POST;
             return client.Execute(request);
         }
+=======
+            HOLIDAY holiday = entity.HOLIDAYS.Single(x => x.Holiday_Id == holidayId);
+            return View(holiday);
+        }
+>>>>>>> origin/master
     }
 }
