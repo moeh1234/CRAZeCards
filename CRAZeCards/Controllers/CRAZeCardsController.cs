@@ -51,7 +51,7 @@ namespace CRAZeCards.Controllers
                                  "sandbox72fcdacea882400d8b44f1952838a66e.mailgun.org", ParameterType.UrlSegment);
             request.Resource = "{domain}/messages";
             request.AddParameter("from", "_Name_ <excited@sandbox72fcdacea882400d8b44f1952838a66e.mailgun.org>");
-            request.AddParameter("to", "ajrashid92@gmail.com");
+            request.AddParameter("to", email);
             request.AddParameter("subject", "Hello");
             request.AddParameter("text", "Testing some Mailgun awesomness!");
             request.Method = Method.POST;

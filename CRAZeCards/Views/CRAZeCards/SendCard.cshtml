@@ -12,13 +12,15 @@
     <title>SendCard</title>
 </head>
 <body>
-    <div>
-        @Model.Holiday_Name
-        <img src="@Model.Holiday_View" />
-    </div>
         @using (Html.BeginForm())
         {
-            <p>  your email </p><input name="toemail" type="text"/>
-        <input type="submit" value="Send Card" />} 
+            <p>Your Name: <input name="yourname" type="text"/></p>
+            <p>Subject: <input name="subject" type="text"/></p>
+            <p>Receiver's Email: <input name="toemail" type="text"/></p>
+            <input type="submit" value="Send Card" />
+        } 
+    <div>
+        <img src="@Model.Holiday_View" />
+    </div>
 </body>
 </html>
