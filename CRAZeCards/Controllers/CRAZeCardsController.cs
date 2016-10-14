@@ -40,6 +40,7 @@ namespace CRAZeCards.Controllers
             string yourName = form["yourname"];
             string message = form["message"];
             string hiddenView = form["hiddenView"];
+            string hiddenId = form["hiddenId"];
             IRestResponse response = SendSimpleMessage(toEMAIL, subject, yourName, message, hiddenView);
 
             return View("MessageSent");
