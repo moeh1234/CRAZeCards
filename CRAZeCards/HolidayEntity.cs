@@ -13,7 +13,7 @@ namespace CRAZeCards
         }
 
         public virtual DbSet<HOLIDAY> HOLIDAYS { get; set; }
-
+        public virtual DbSet<USER_RESPONSE_INDEX> USER_RESPONSE_INDEXS { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<HOLIDAY>()
@@ -35,6 +35,11 @@ namespace CRAZeCards
             modelBuilder.Entity<HOLIDAY>()
                 .Property(e => e.Holiday_View)
                 .IsUnicode(false);
+            //
+            modelBuilder.Entity<USER_RESPONSE_INDEX>()
+                .Property(e => e.Track_Id)
+                .IsUnicode(false);
+
         }
     }
 }

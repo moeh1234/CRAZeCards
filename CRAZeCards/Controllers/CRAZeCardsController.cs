@@ -11,6 +11,11 @@ namespace CRAZeCards.Controllers
 {
     public class CRAZeCardsController : Controller
     {
+        private CrazEcardsEntities entity;
+        public CRAZeCardsController()
+        {
+             entity = new CrazEcardsEntities();
+        }
         // GET: CRAZeCards
         public ActionResult Index()
         {
@@ -27,7 +32,7 @@ namespace CRAZeCards.Controllers
         [HttpGet]
         public ActionResult SendCard(string holidayId, string imgUrl)
         {
-            HolidayEntity entity = new HolidayEntity();
+            
            HOLIDAY holiday = entity.HOLIDAYS.Single(x => x.Holiday_Id == holidayId);
 
             return View(holiday);
@@ -41,12 +46,14 @@ namespace CRAZeCards.Controllers
             string message = form["message"];
             string hiddenView = form["hiddenView"];
             string hiddenId = form["hiddenId"];
-            IRestResponse response = SendSimpleMessage(toEMAIL, subject, yourName, message, hiddenView);
+            IRestResponse response = SendSimpleMessage(toEMAIL, subject, yourName, message, hiddenView,hiddenId);
 
+            entity.USER_RESPONSE_INDEX.Add(new USER_RESPONSE_INDEX() { Track_Id= hiddenId });
+            entity.SaveChanges();
             return View("MessageSent");
         }
 
-        public static IRestResponse SendSimpleMessage(string email, string subject, string yourname, string message, string hiddenView)
+        public static IRestResponse SendSimpleMessage(string email, string subject, string yourname, string message, string hiddenView,string hiddenId)
         {
             RestClient client = new RestClient();
             client.BaseUrl = new Uri("https://api.mailgun.net/v3");

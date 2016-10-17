@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CrazEcardsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="HOLIDAYS">
+          <Key>
+            <PropertyRef Name="Holiday_Id" />
+          </Key>
+          <Property Name="Holiday_Id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Holiday_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Holiday_Month" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Holiday_Date" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Holiday_View" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="USER_RESPONSE_INDEX">
+          <Key>
+            <PropertyRef Name="Url_Tracking_Id" />
+          </Key>
+          <Property Name="Url_Tracking_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Track_Id" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK__USER_RESP__Track__4E88ABD4">
+          <End Role="HOLIDAYS" Type="Self.HOLIDAYS" Multiplicity="0..1" />
+          <End Role="USER_RESPONSE_INDEX" Type="Self.USER_RESPONSE_INDEX" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HOLIDAYS">
+              <PropertyRef Name="Holiday_Id" />
+            </Principal>
+            <Dependent Role="USER_RESPONSE_INDEX">
+              <PropertyRef Name="Track_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CrazEcardsModelStoreContainer">
+          <EntitySet Name="HOLIDAYS" EntityType="Self.HOLIDAYS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USER_RESPONSE_INDEX" EntityType="Self.USER_RESPONSE_INDEX" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__USER_RESP__Track__4E88ABD4" Association="Self.FK__USER_RESP__Track__4E88ABD4">
+            <End Role="HOLIDAYS" EntitySet="HOLIDAYS" />
+            <End Role="USER_RESPONSE_INDEX" EntitySet="USER_RESPONSE_INDEX" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CrazEcardsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="HOLIDAY">
+          <Key>
+            <PropertyRef Name="Holiday_Id" />
+          </Key>
+          <Property Name="Holiday_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Holiday_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Holiday_Month" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Holiday_Date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Holiday_View" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="USER_RESPONSE_INDEX" Relationship="Self.FK__USER_RESP__Track__4E88ABD4" FromRole="HOLIDAYS" ToRole="USER_RESPONSE_INDEX" />
+        </EntityType>
+        <EntityType Name="USER_RESPONSE_INDEX">
+          <Key>
+            <PropertyRef Name="Url_Tracking_Id" />
+          </Key>
+          <Property Name="Url_Tracking_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Track_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="HOLIDAY" Relationship="Self.FK__USER_RESP__Track__4E88ABD4" FromRole="USER_RESPONSE_INDEX" ToRole="HOLIDAYS" />
+        </EntityType>
+        <Association Name="FK__USER_RESP__Track__4E88ABD4">
+          <End Role="HOLIDAYS" Type="Self.HOLIDAY" Multiplicity="0..1" />
+          <End Role="USER_RESPONSE_INDEX" Type="Self.USER_RESPONSE_INDEX" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HOLIDAYS">
+              <PropertyRef Name="Holiday_Id" />
+            </Principal>
+            <Dependent Role="USER_RESPONSE_INDEX">
+              <PropertyRef Name="Track_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CrazEcardsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="HOLIDAYS" EntityType="Self.HOLIDAY" />
+          <EntitySet Name="USER_RESPONSE_INDEX" EntityType="Self.USER_RESPONSE_INDEX" />
+          <AssociationSet Name="FK__USER_RESP__Track__4E88ABD4" Association="Self.FK__USER_RESP__Track__4E88ABD4">
+            <End Role="HOLIDAYS" EntitySet="HOLIDAYS" />
+            <End Role="USER_RESPONSE_INDEX" EntitySet="USER_RESPONSE_INDEX" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CrazEcardsModelStoreContainer" CdmEntityContainer="CrazEcardsEntities">
+          <EntitySetMapping Name="HOLIDAYS">
+            <EntityTypeMapping TypeName="CrazEcardsModel.HOLIDAY">
+              <MappingFragment StoreEntitySet="HOLIDAYS">
+                <ScalarProperty Name="Holiday_Id" ColumnName="Holiday_Id" />
+                <ScalarProperty Name="Holiday_Name" ColumnName="Holiday_Name" />
+                <ScalarProperty Name="Holiday_Month" ColumnName="Holiday_Month" />
+                <ScalarProperty Name="Holiday_Date" ColumnName="Holiday_Date" />
+                <ScalarProperty Name="Holiday_View" ColumnName="Holiday_View" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USER_RESPONSE_INDEX">
+            <EntityTypeMapping TypeName="CrazEcardsModel.USER_RESPONSE_INDEX">
+              <MappingFragment StoreEntitySet="USER_RESPONSE_INDEX">
+                <ScalarProperty Name="Url_Tracking_Id" ColumnName="Url_Tracking_Id" />
+                <ScalarProperty Name="Track_Id" ColumnName="Track_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
