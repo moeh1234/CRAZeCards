@@ -8,6 +8,7 @@
 
 <html>
 <head>
+    <meta name="google-site-verification" content="GJm0Cx1Wj912iNbwDC_Bqrc4HqfWXRdVwI7GnSf53yE" />
     <meta name="viewport" content="width=device-width" />
     <title>SendCard</title>
     <style>
@@ -33,14 +34,6 @@
             box-shadow: inset 0 2px 0 rgba(0, 0, 0, .2), 0 0 4px rgba(0, 0, 0, 0.1);
 
         }
-        #hideView
-        {
-            display:none;
-        }
-        /*#hideId
-        {
-            display:none;
-        }*/
         .name
         {
     display: block;
@@ -70,23 +63,31 @@
 }
         #locator{position: absolute; visibility: visible; left: 700px; top: 120px; height: 100px; width: 150px; z-index: 200; }
         #formx{position: absolute; visibility: visible; left: 350px; top: 100px; height: 100px; width: 400px; z-index: 200; }
+        #hideId{display:none;}
+        #hideView{display:none;}
     </style>
 </head>
 <body>
-        @using (Html.BeginForm())
-        {
+    <form action="/CRAZeCards/SendCard" data-toggle="validator" method="post">
+        <div class="form-group">
             <p id="formx">
-                <font color="white" size="5">Send your CRAZeCard!</font><br><br><input name="yourname" type="text" placeholder="Your Name" class="name" /><br>
+                <font color="white" size="5">Send your CRAZeCard!</font><br>
+                <br><input name="yourname" type="text" placeholder="Your Name" class="name"  required/><br>
                 <br><input name="subject" type="text" placeholder="Subject" class="subject" /><br>
-                <br><input name="toemail" type="text" placeholder="Receiver's Email'" class="receiver" /><br>
+                <br><input name="toemail" type="email" placeholder="Receiver's Email'" class="receiver" required /><br>
                 <br><textarea class="messagebox" name="message" placeholder="Type a message to go with your card!"></textarea>
                 <br>
                 <input type="submit" value="Send Card" id="sendbutton" />
             </p>
-            <input type="url" name="hiddenView" value="@Model.Holiday_View" id="hideView" />
-            <input type="text" name="hiddenId" value="@Model.Holiday_Id" id="hideId" />
+        </div>
+        <input type="url" name="hiddenView" value="@Model.Holiday_View" id="hideView" />
+        <input type="text" name="hiddenId" value="@Model.Holiday_Id" id="hideId" />
 
-        }
-            <div id="locator"><img src="@Model.Holiday_View" class="eCard" /></div> 
+        </form>
+        <div id="locator"><img src="@Model.Holiday_View" class="eCard" /></div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
 </body>
 </html>
