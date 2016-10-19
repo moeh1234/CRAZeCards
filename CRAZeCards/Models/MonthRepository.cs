@@ -19,7 +19,7 @@ namespace CRAZeCards.Models
             {
                 Month month1 = new Month();
                 month1.Name = "January";
-                List<HOLIDAY> holidays = entity.HOLIDAYS.Where(x => x.Holiday_Month == "jan").ToList();
+                List<HOLIDAY> holidays = entity.HOLIDAYS.Where(x => x.Holiday_Month == "January").ToList();
 
 
                 month1.Holidays = holidays;
@@ -31,7 +31,7 @@ namespace CRAZeCards.Models
                 Month month2 = new Month();
                 month2.Name = "February";
 
-                List<HOLIDAY> holidays = entity.HOLIDAYS.Where(x => x.Holiday_Month == "feb").ToList();
+                List<HOLIDAY> holidays = entity.HOLIDAYS.Where(x => x.Holiday_Month == "February").ToList();
 
 
                 month2.Holidays = holidays;
@@ -43,7 +43,7 @@ namespace CRAZeCards.Models
                 Month month3 = new Month();
                 month3.Name = "March";
 
-                List<HOLIDAY> holidays = entity.HOLIDAYS.Where(x => x.Holiday_Month == "mar").ToList();
+                List<HOLIDAY> holidays = entity.HOLIDAYS.Where(x => x.Holiday_Month == "March").ToList();
 
 
                 month3.Holidays = holidays;
@@ -55,7 +55,7 @@ namespace CRAZeCards.Models
                 Month month4 = new Month();
                 month4.Name = "April";
 
-                List<HOLIDAY> holidays = entity.HOLIDAYS.Where(x => x.Holiday_Month == "apr").ToList();
+                List<HOLIDAY> holidays = entity.HOLIDAYS.Where(x => x.Holiday_Month == "April").ToList();
 
 
                 month4.Holidays = holidays;
@@ -67,7 +67,7 @@ namespace CRAZeCards.Models
                 Month month5 = new Month();
                 month5.Name = "May";
 
-                List<HOLIDAY> holidays = entity.HOLIDAYS.Where(x => x.Holiday_Month == "may").ToList();
+                List<HOLIDAY> holidays = entity.HOLIDAYS.Where(x => x.Holiday_Month == "May").ToList();
 
 
                 month5.Holidays = holidays;
@@ -79,7 +79,7 @@ namespace CRAZeCards.Models
                 Month month6 = new Month();
                 month6.Name = "june";
 
-                List<HOLIDAY> holidays = entity.HOLIDAYS.Where(x => x.Holiday_Month == "jun").ToList();
+                List<HOLIDAY> holidays = entity.HOLIDAYS.Where(x => x.Holiday_Month == "June").ToList();
 
 
                 month6.Holidays = holidays;
@@ -91,7 +91,7 @@ namespace CRAZeCards.Models
                 Month month7 = new Month();
                 month7.Name = "July";
 
-                 List<HOLIDAY> holidays = entity.HOLIDAYS.Where(x => x.Holiday_Month == "jul").ToList();
+                 List<HOLIDAY> holidays = entity.HOLIDAYS.Where(x => x.Holiday_Month == "July").ToList();
 
 
                 month7.Holidays = holidays;
@@ -103,7 +103,7 @@ namespace CRAZeCards.Models
                 Month month8 = new Month();
                 month8.Name = "August";
 
-               List<HOLIDAY> holidays = entity.HOLIDAYS.Where(x => x.Holiday_Month == "aug").ToList();
+               List<HOLIDAY> holidays = entity.HOLIDAYS.Where(x => x.Holiday_Month == "August").ToList();
 
 
                 month8.Holidays = holidays;
@@ -115,7 +115,7 @@ namespace CRAZeCards.Models
                 Month month9 = new Month();
                 month9.Name = "September";
 
-                List<HOLIDAY> holidays = entity.HOLIDAYS.Where(x => x.Holiday_Month == "sep").ToList();
+                List<HOLIDAY> holidays = entity.HOLIDAYS.Where(x => x.Holiday_Month == "September").ToList();
 
 
                 month9.Holidays = holidays;
@@ -127,7 +127,7 @@ namespace CRAZeCards.Models
                 Month month10 = new Month();
                 month10.Name = "October";
 
-                List<HOLIDAY> holidays = entity.HOLIDAYS.Where(x => x.Holiday_Month == "oct").ToList();
+                List<HOLIDAY> holidays = entity.HOLIDAYS.Where(x => x.Holiday_Month == "October").ToList();
 
 
                 month10.Holidays = holidays;
@@ -139,7 +139,7 @@ namespace CRAZeCards.Models
                 Month month11 = new Month();
                 month11.Name = "November";
 
-                List<HOLIDAY> holidays = entity.HOLIDAYS.Where(x => x.Holiday_Month == "nov").ToList();
+                List<HOLIDAY> holidays = entity.HOLIDAYS.Where(x => x.Holiday_Month == "November").ToList();
 
 
                 month11.Holidays = holidays;
@@ -151,7 +151,7 @@ namespace CRAZeCards.Models
                 Month month12 = new Month();
                 month12.Name = "December";
 
-                List<HOLIDAY> holidays = entity.HOLIDAYS.Where(x => x.Holiday_Month == "dec").ToList();
+                List<HOLIDAY> holidays = entity.HOLIDAYS.Where(x => x.Holiday_Month == "December").ToList();
 
 
                 month12.Holidays = holidays;
