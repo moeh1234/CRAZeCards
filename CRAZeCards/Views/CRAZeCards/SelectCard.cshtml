@@ -25,13 +25,13 @@
 </head>
 <body>
     <div>
-        <center><br><br><br><br><br><br>
-            <ul style="list-style: none; color:black">
+        <center><br><br><br><br><br><br><br><br>
+            <ul style="list-style: none; text-decoration:none; color:black">
                 @foreach (HOLIDAY holiday in Model.Holidays)
             {
-                    <li><font size="7" class="linkcolor">@Html.ActionLink(@holiday.Holiday_Name, "SendCard", new { holidayId = holiday.Holiday_Id, imgUrl = holiday.Holiday_View })
-                        -@Html.ActionLink(@holiday.Holiday_Month, "SendCard", new { holidayId = holiday.Holiday_Id, imgUrl = holiday.Holiday_View })
-                        @Html.ActionLink(@holiday.Holiday_Date, "SendCard", new { holidayId = holiday.Holiday_Id, imgUrl = holiday.Holiday_View })</li>
+                    <li><font size="6" class="linkcolor" >@Html.ActionLink(@holiday.Holiday_Name, "SendCard", new { holidayId = holiday.Holiday_Id, imgUrl = holiday.Holiday_View, }, new { style = "text-decoration:none;" })
+                        - &nbsp;@Html.ActionLink(@holiday.Holiday_Month, "SendCard", new { holidayId = holiday.Holiday_Id, imgUrl = holiday.Holiday_View }, new { style = "text-decoration:none;" })
+                        @Html.ActionLink(@holiday.Holiday_Date, "SendCard", new { holidayId = holiday.Holiday_Id, imgUrl = holiday.Holiday_View, }, new { style = "text-decoration:none;" })</li>
                 }
             </ul>
         </center>
