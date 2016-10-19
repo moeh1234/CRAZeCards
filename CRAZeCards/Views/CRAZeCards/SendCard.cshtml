@@ -32,6 +32,7 @@
             padding: 5px 8px;
             color: #333;
             box-shadow: inset 0 2px 0 rgba(0, 0, 0, .2), 0 0 4px rgba(0, 0, 0, 0.1);
+            resize: none;
 
         }
         .name
@@ -64,8 +65,9 @@
         #locator{position: absolute; visibility: visible; left: 700px; top: 120px; height: 441px; width: 550px; z-index: 200; }
         #formx{position: absolute; visibility: visible; left: 350px; top: 100px; height: 100px; width: 400px; z-index: 200; }
         #hideId{display:none;}
-        #hideView{display:none;}        
-        .textbox-replica {width: 550px; height: 441px; overflow: auto; border: 1px solid #aaa;}
+        #hideView{display:none;}
+        #hideMonth{display:none;}        
+        .textbox-replica {width: 550px; height: 441px; overflow: auto; border: none;}
 
     </style>
 </head>
@@ -76,7 +78,7 @@
                 <font color="white" size="5">Send your CRAZeCard!</font><br>
                 <br><input name="yourname" type="text" placeholder="Your Name" class="name"  required/><br>
                 <br><input name="subject" type="text" placeholder="Subject" class="subject" /><br>
-                <br><input name="toemail" type="email" placeholder="Receiver's Email'" class="receiver" required /><br>
+                <br><input name="toemail" type="email" placeholder="Receiver's Email" class="receiver" required /><br>
                 <br><textarea class="messagebox" name="message" placeholder="Type a message to go with your card!"></textarea>
                 <br>
                 <input type="submit" value="Send Card" id="sendbutton" />
@@ -84,6 +86,7 @@
         </div>
         <input type="url" name="hiddenView" value="@Model.Holiday_View" id="hideView" />
         <input type="text" name="hiddenId" value="@Model.Holiday_Id" id="hideId" />
+        <input type="text" name="hiddenMonth" value="@Model.Holiday_Month" id="hideMonth" />
 
         </form>
     <div id="locator"><font color="white" size="5">@Model.Holiday_Name</font><br><br><div class="textbox-replica"><img src="@Model.Holiday_View" id="img"></div></div>

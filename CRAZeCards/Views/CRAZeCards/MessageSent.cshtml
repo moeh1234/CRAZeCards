@@ -1,4 +1,4 @@
-﻿
+﻿@model CRAZeCards.HOLIDAY
 @{
     Layout = null;
 }
@@ -88,7 +88,7 @@
     <div> 
         <br><br><br><br><br><br><br><br><br><br><br><br><br>
     <center><font size="5" face="Permanent Marker">Your card is on it's way.</font><br>
-            <input type="button" class="button" value="Send Another Card" />
+            <a href="/CRAZeCards/SelectCard?Month=@Model.Holiday_Month"><input type="button" class="button" value="Send Another Card" /></a>
                 <a href="/CRAZeCards/Index"><input type="button" class="homepage" value="Pick A Different Month" /></a>
 
 </center>

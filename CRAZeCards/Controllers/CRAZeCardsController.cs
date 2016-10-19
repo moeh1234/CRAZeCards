@@ -42,6 +42,7 @@ namespace CRAZeCards.Controllers
             string message = form["message"];
             string hiddenView = form["hiddenView"];
             string hiddenId = form["hiddenId"];
+            string hiddenMonth = form["hiddenMonth"];
             //IRestResponse response = SendSimpleMessage(toEMAIL, subject, yourName, message, hiddenView,hiddenId);
             System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage();
             mail.From = new MailAddress("crazecards@gmail.com", yourName);
@@ -58,8 +59,9 @@ namespace CRAZeCards.Controllers
             smtp.Send(mail);
             entity.USER_RESPONSE_INDEX.Add(new USER_RESPONSE_INDEX() { Track_Id= hiddenId });
             entity.SaveChanges();
-            
-            return View("MessageSent");
+
+            HOLIDAY holiday = new HOLIDAY() { Holiday_Month = hiddenMonth };
+            return View("MessageSent", holiday);
         }
 
         //public static IRestResponse SendSimpleMessage(string email, string subject, string yourname, string message, string hiddenView,string hiddenId)
