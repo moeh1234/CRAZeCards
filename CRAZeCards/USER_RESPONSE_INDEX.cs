@@ -11,12 +11,15 @@ namespace CRAZeCards
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class USER_RESPONSE_INDEX
     {
         public int Url_Tracking_Id { get; set; }
         public string Track_Id { get; set; }
-    
+
+        //[DataType(DataType.Date)]
+        //public DateTime Used_Date { get; set; }
         public virtual HOLIDAY HOLIDAY { get; set; }
     }
 }
